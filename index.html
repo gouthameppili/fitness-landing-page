@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FitForce Dark Theme with Video & Animations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* Base and theme colors */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+      margin: 0;
+      padding-top: 64px; /* To offset fixed navbar height */
+    }
+    /* CSS variables for light/dark mode */
+    :root {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --accent-color: #007BFF;
+      --bg-section-dark: #1f2937; /* Tailwind gray-800 */
+      --bg-section-darker: #111827; /* Tailwind gray-900 */
+      --bg-section-darkest: #0f172a; /* Tailwind gray-950 */
+      --footer-bg: #000000;
+      --text-muted: #9ca3af;
+    }
+
+    /* Light mode overrides */
+    body.light-mode {
+      --bg-color: #ffffff;
+      --text-color: #1f2937;
+      --accent-color: #007BFF;
+      --bg-section-dark: #e5e7eb; /* Tailwind gray-200 */
+      --bg-section-darker: #f9fafb; /* Tailwind gray-50 */
+      --bg-section-darkest: #f3f4f6; /* Tailwind gray-100 */
+      --footer-bg: #111827;
+      --text-muted: #6b7280;
+    }
+
+    /* Utility classes */
+    .bg-base {
+      background-color: var(--bg-color);
+    }
+    .text-base {
+      color: var(--text-color);
+    }
+    .bg-accent {
+      background-color: var(--accent-color);
+    }
+    .text-accent {
+      color: var(--accent-color);
+    }
+    .bg-section-dark {
+      background-color: var(--bg-section-dark);
+    }
+    .bg-section-darker {
+      background-color: var(--bg-section-darker);
+    }
+    .bg-section-darkest {
+      background-color: var(--bg-section-darkest);
+    }
+    .text-muted {
+      color: var(--text-muted);
+    }
+    .footer-bg {
+      background-color: var(--footer-bg);
+    }
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--accent-color);
+      border-radius: 4px;
+    }
+    /* Fixed navbar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body class="bg-base text-base transition-colors duration-500">
+
+  <!-- Navbar -->
+  <header class="bg-section-darkest shadow-lg">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-accent">FitForce</h1>
+      <nav>
+        <ul class="flex space-x-6 items-center">
+          <!-- Dark Mode Toggle moved here -->
+          <li>
+            <button id="toggleDark" 
+                    class="bg-accent hover:opacity-90 text-black px-3 py-1 rounded shadow font-semibold text-sm">
+              Toggle Light Mode
+            </button>
+          </li>
+          <li><a href="#home" class="hover:text-accent">Home</a></li>
+          <li><a href="#features" class="hover:text-accent">Programs</a></li>
+          <li><a href="#about" class="hover:text-accent">About</a></li>
+          <li><a href="#contact" class="hover:text-accent">Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section with Video Background -->
+  <section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+
+    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover brightness-50">
+      <source src="https://cdn.videvo.net/videvo_files/video/free/2019-07/small_watermarked/190707_04_Fitness_04_preview.webm" type="video/webm" />
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="relative z-10 px-6 max-w-3xl" data-aos="fade-up" data-aos-duration="1500">
+      <h2 class="text-5xl md:text-6xl font-extrabold mb-6">
+        Train Hard. <span class="text-accent">Feel Strong.</span>
+      </h2>
+      <p class="text-lg md:text-xl mb-8 text-muted">
+        Push your limits with our elite training programs and expert guidance. Your transformation starts today.
+      </p>
+      <a href="#contact" class="bg-accent text-black px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition">
+        Join Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-section-dark">
+    <div class="container mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center mb-12" data-aos="fade-down" data-aos-duration="1200">Our Programs</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-section-darker p-6 rounded-lg shadow hover:shadow-accent transition" data-aos="fade-up" data-aos-delay="100">
+          <h4 class="text-xl font-bold mb-2 text-accent">💪 Strength Training</h4>
+          <p class="text-muted">Build muscle and improve strength with customized weight programs.</p>
+          <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=600&q=80" alt="Strength Training" class="mt-4 rounded-lg shadow-md" />
+        </div>
+        <div class="bg-section-darker p-6 rounded-lg shadow hover:shadow-accent transition" data-aos="fade-up" data-aos-delay="200">
+          <h4 class="text-xl font-bold mb-2 text-accent">🔥 HIIT Workouts</h4>
+          <p class="text-muted">High-Intensity Interval Training to burn fat and boost stamina.</p>
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80" alt="HIIT Workout" class="mt-4 rounded-lg shadow-md" />
+        </div>
+        <div class="bg-section-darker p-6 rounded-lg shadow hover:shadow-accent transition" data-aos="fade-up" data-aos-delay="300">
+          <h4 class="text-xl font-bold mb-2 text-accent">🥗 Nutrition Plans</h4>
+          <p class="text-muted">Get diet plans tailored for your fitness goals and body type.</p>
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" alt="Nutrition Plans" class="mt-4 rounded-lg shadow-md" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-section-darkest py-20">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+        <img
+          src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"
+          alt="About FitForce"
+          class="rounded-lg shadow-lg"
+        />
+      </div>
+      <div class="md:w-1/2 md:pl-12 text-muted" data-aos="fade-left">
+        <h3 class="text-3xl font-bold mb-4 text-base">About <span class="text-accent">FitForce</span></h3>
+        <p class="mb-4">
+          We are more than a gym — we’re a community. Our expert trainers, modern facilities, and proven programs help you reach your maximum potential.
+        </p>
+        <a href="#contact" class="bg-accent text-black px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / CTA -->
+  <section id="contact" class="py-20 bg-section-dark text-center">
+    <h3 class="text-3xl font-bold mb-4" data-aos="fade-up">Ready to Crush Your Goals?</h3>
+    <p class="mb-8 text-muted" data-aos="fade-up" data-aos-delay="100">Sign up today and get a free 1-on-1 session with our top trainer.</p>
+    <form
+      class="flex flex-col md:flex-row justify-center gap-4 max-w-xl mx-auto"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      <input
+        type="email"
+        placeholder="Enter your email"
+        class="px-4 py-3 rounded-lg text-black w-full md:w-auto"
+        required
+      />
+      <button
+        type="submit"
+        class="bg-accent text-black px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition"
+      >
+        Sign Up
+      </button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-bg text-muted text-center py-6">
+    <p>&copy; 2025 FitForce. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true, // Animate only once when scrolling down
+    });
+
+    // Dark Mode Toggle
+    const toggleBtn = document.getElementById('toggleDark');
+    const body = document.body;
+    let dark = true; // default dark on load
+
+    toggleBtn.addEventListener('click', () => {
+      if (dark) {
+        body.classList.add('light-mode');
+        toggleBtn.textContent = 'Toggle Dark Mode';
+        dark = false;
+      } else {
+        body.classList.remove('light-mode');
+        toggleBtn.textContent = 'Toggle Light Mode';
+        dark = true;
+      }
+    });
+  </script>
+</body>
+</html>
